@@ -5,12 +5,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  # Update these with your actual Azure DevOps Service Connection and Backend details
-  azureServiceConnection: 'your-service-connection-name'
+  # >>> CONFIGURATION REQUIRED: Replace with your Azure DevOps Service Connection name
+  azureServiceConnection: 'your-service-connection-name' 
+  
+  # >>> CONFIGURATION REQUIRED: Resource Group where your Terraform Backend Storage resides
   resourceGroupName: 'your-backend-rg'
+  
+  # >>> CONFIGURATION REQUIRED: Storage Account name for the Terraform state file
   storageAccountName: 'your-backend-storage'
+  
+  # >>> CONFIGURATION REQUIRED: Storage Container name for the state file
   containerName: 'tfstate'
+  
+  # The name of the state file (you can keep this or change it)
   tfstateKey: 'microinfra.tfstate'
+  
   workingDirectory: '$(System.DefaultWorkingDirectory)/Env'
 
 stages:
